@@ -39,7 +39,7 @@ jobs:
           service_account: "github-actions-service-account@journal-bb5e3.iam.gserviceaccount.com"
 
       - id: "deploy"
-        uses: google-github-actions/deploy-cloud-functions@v1
+        uses: google-github-actions/deploy-cloud-functions@v0.1.0
         with:
           # Name of the Cloud Function, same as the entry point name
           name: "helloWorld"
