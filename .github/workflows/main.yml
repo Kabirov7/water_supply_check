@@ -27,11 +27,11 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
 
       - id: "auth"
         name: "Authenticate to Google Cloud"
-        uses: google-github-actions/auth@v1
+        uses: "google-github-actions/auth@v0"
         with:
           # Replace with your Workload Identity Provider Location
           workload_identity_provider: "projects/918752509407/locations/global/workloadIdentityPools/gh-pool/providers/gh-provider"
@@ -39,7 +39,7 @@ jobs:
           service_account: "github-actions-service-account@journal-bb5e3.iam.gserviceaccount.com"
 
       - id: "deploy"
-        uses: google-github-actions/deploy-cloud-functions@v0.1.0
+        uses: "google-github-actions/deploy-cloud-functions@v0"
         with:
           # Name of the Cloud Function, same as the entry point name
           name: "helloWorld"
